@@ -1,0 +1,39 @@
+A ARTE DA MOLDURA
+=================
+
+A moldura do gerador é ARQUIVO, não código. Para trocar a arte:
+
+1) Peça ao designer o PNG QUADRADO, com fundo transparente onde a foto do
+   apoiador deve aparecer.
+
+2) Rode:
+       py scripts/prepara-moldura.py "C:\caminho\ARTE.png"
+
+   Ele gera `oficial-feed.webp` (1080x1080) e `oficial-story.webp`
+   (1080x1920) aqui nesta pasta, e imprime o valor de "faixa".
+
+3) Copie o "faixa" que ele imprimiu para o `manifesto.json`.
+
+Pronto. Não precisa mexer em código.
+
+POR QUE O STORY NÃO É A MESMA ARTE ESTICADA
+A arte é quadrada. Esticar para 9:16 deformaria o rosto da candidata e o
+lockup. O script cola a arte quadrada rente ao PÉ de um quadro 1080x1920 e
+deixa o resto transparente: a composição de baixo fica idêntica e o que sobra
+vira área de foto — que é o que o formato pede.
+
+O QUE É "faixa"
+A altura, em unidades de 1080, que a moldura cobre no pé. O app usa esse
+número para saber até onde ainda dá para encaixar rosto e enquadrar a selfie
+ali. O script MEDE isso na arte; não é número chutado. Se a arte mudar e você
+esquecer de atualizar, o rosto do apoiador vai parar atrás da faixa.
+
+MAIS DE UMA MOLDURA
+Basta acrescentar outro item no `manifesto.json`. O seletor de modelos
+aparece sozinho e os passos da página se renumeram.
+
+SE DER ERRADO
+- Manifesto ausente ou inválido: a página avisa em vez de abrir quebrada, e
+  escreve o motivo no console.
+- Arquivo listado que não existe: mesma coisa. Nenhum botão morto aparece
+  para o apoiador.

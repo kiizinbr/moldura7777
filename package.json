@@ -1,0 +1,14 @@
+{
+  "name": "sarah-poncio-twibbon",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Gerador de moldura de campanha (twibbon) — Sarah Poncio, Deputada Federal 7777",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "previa": "node scripts/previa.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.62.1"
+  }
+}

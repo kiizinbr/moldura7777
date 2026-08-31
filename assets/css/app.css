@@ -1,0 +1,374 @@
+/* -----------------------------------------------------------------------------
+   FONTES — locais, nunca do Google.
+   Ate 31/08/2026 este arquivo dependia de tres <link> para fonts.googleapis.com.
+   Medido no ar: toda visita contactava fonts.googleapis.com e fonts.gstatic.com,
+   entregando IP e User-Agent ao Google ANTES de qualquer consentimento. Num
+   endereco de campanha o simples acesso ja revela opiniao politica — dado
+   sensivel (LGPD, art. 5o, II), para o qual o art. 11 nao oferece legitimo
+   interesse. E a regra no 7 do CLAUDE.md do site da campanha; este repo estava
+   fora dela.
+   Os .woff2 vieram de sarah-poncio-federal/assets/fonts (baixados por
+   scripts/baixa-fontes.mjs de la). So os 12 pesos que este app usa.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/anton-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/anton-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/barlow-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/barlow-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/barlow-600-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/barlow-600-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/barlow-700-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/barlow-700-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/barlow-condensed-600-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/barlow-condensed-600-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/barlow-condensed-700-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/barlow-condensed-700-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* =============================================================================
+   GERADOR DE MOLDURA · SARAH PONCIO 7777
+   Mesma direcao visual do site: massa de cor chapada, corte diagonal, Anton
+   gritante, ZERO sombra difusa. Tokens copiados de sarah-poncio-federal.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  --navy-950:#0a0f2e; --navy-900:#0e1538; --navy:#172053;
+  --navy-700:#24306f; --navy-300:#9aa3c9; --navy-100:#dfe2ee;
+
+  /* Contrastes medidos no site: o laranja da marca (#fe6f29) REPROVA como
+     texto sobre claro (2.79:1). So grafismo e fundo. Texto usa o -700. */
+  --laranja:#fe6f29; --laranja-display:#ec5c13; --laranja-700:#b8440d;
+  --laranja-100:#ffe6d8;
+
+  --branco:#fff; --papel:#f4f4f6;
+  --txt:var(--navy); --txt-2:#4a4f63; --txt-fraco:#63697e;
+  --borda:rgba(23,32,83,.14);
+
+  --display:"Anton","Arial Narrow",Impact,sans-serif;
+  --cond:"Barlow Condensed","Arial Narrow",sans-serif;
+  --texto:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --r:12px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--papel); color:var(--txt);
+  font-family:var(--texto); font-size:16px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+button,input{font:inherit;color:inherit}
+
+/* --------------------------------------------------------------------------
+   TOPO
+   -------------------------------------------------------------------------- */
+.topo{
+  display:flex; align-items:center; gap:14px;
+  padding:14px clamp(16px,4vw,40px);
+  background:var(--navy); color:#fff;
+}
+.topo__marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.topo__nome{font-family:var(--display);font-size:20px;letter-spacing:.02em;line-height:1}
+.topo__nome b{color:var(--laranja);font-weight:400}
+.topo__num{
+  font-family:var(--display);font-size:17px;line-height:1;
+  background:var(--laranja);color:var(--navy);
+  padding:6px 10px 4px;border-radius:14px 0 14px 0;
+}
+.topo__tag{
+  margin-left:auto;font-family:var(--cond);font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;font-size:12px;
+  color:rgba(255,255,255,.74);
+}
+
+/* --------------------------------------------------------------------------
+   GRADE
+   -------------------------------------------------------------------------- */
+.app{
+  display:grid; gap:clamp(20px,3vw,44px);
+  grid-template-columns:minmax(0,1fr) minmax(320px,400px);
+  align-items:start;
+  max-width:1180px; margin:0 auto;
+  padding:clamp(20px,4vw,44px) clamp(16px,4vw,40px) 72px;
+}
+@media (max-width:900px){
+  .app{grid-template-columns:minmax(0,1fr)}
+}
+
+/* --------------------------------------------------------------------------
+   PALCO (canvas)
+   -------------------------------------------------------------------------- */
+.palco{position:sticky;top:20px}
+@media (max-width:900px){ .palco{position:static} }
+
+.palco__moldura{
+  position:relative; background:var(--navy-950);
+  border:3px solid var(--navy); border-radius:var(--r);
+  overflow:hidden; line-height:0;
+  /* xadrez discreto: deixa claro o que e area vazia */
+  background-image:
+    linear-gradient(45deg,rgba(255,255,255,.03) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.03) 75%),
+    linear-gradient(45deg,rgba(255,255,255,.03) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.03) 75%);
+  background-size:28px 28px; background-position:0 0,14px 14px;
+}
+.palco__moldura.is-dragover{border-color:var(--laranja)}
+
+#tela{display:block;width:100%;height:auto;touch-action:none;cursor:grab}
+#tela.is-grabbing{cursor:grabbing}
+#tela.is-vazio{cursor:default}
+
+.vazio{
+  position:absolute; inset:0; display:grid; place-content:center; justify-items:center;
+  gap:12px; color:var(--navy-300); text-align:center; line-height:1.4;
+  pointer-events:none; padding:24px;
+}
+.vazio[hidden]{display:none}
+.vazio p{margin:0;font-family:var(--cond);font-size:19px;letter-spacing:.02em}
+.vazio b{color:#fff;font-weight:600}
+
+.palco__dica{
+  position:absolute; left:50%; bottom:12px; transform:translateX(-50%);
+  background:rgba(10,15,46,.82); color:#fff; line-height:1.2;
+  font-family:var(--cond); font-size:13px; letter-spacing:.06em; text-transform:uppercase;
+  padding:7px 12px; border-radius:99px; white-space:nowrap; pointer-events:none;
+  transition:opacity .3s;
+}
+.palco__dica[hidden]{display:none}
+.palco__dica.is-fade{opacity:0}
+
+.palco__nota{
+  display:flex;align-items:flex-start;gap:8px;
+  margin:12px 2px 0;font-size:13.5px;line-height:1.45;color:var(--txt-2);
+}
+.palco__nota svg{flex:none;margin-top:2px;color:var(--laranja-700)}
+.palco__nota b{color:var(--navy)}
+
+/* --------------------------------------------------------------------------
+   PAINEL
+   -------------------------------------------------------------------------- */
+.painel__titulo{
+  font-family:var(--display); font-weight:400;
+  font-size:clamp(30px,4.4vw,40px); line-height:1.06; letter-spacing:.005em;
+  margin:0 0 8px; text-transform:uppercase;
+}
+.painel__titulo em{font-style:normal;color:var(--laranja-display)}
+.painel__sub{margin:0 0 22px;color:var(--txt-2);font-size:15px}
+
+.bloco{
+  background:#fff; border:1px solid var(--borda); border-radius:var(--r);
+  padding:16px; margin-bottom:14px;
+}
+.bloco--saida{background:var(--navy);border-color:var(--navy)}
+
+.bloco__rot{
+  display:flex;align-items:center;gap:9px; margin-bottom:12px;
+  font-family:var(--cond); font-weight:600; font-size:14px;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--txt-2);
+}
+.passo{
+  display:grid;place-content:center;width:22px;height:22px;flex:none;
+  background:var(--navy);color:#fff;border-radius:8px 0 8px 0;
+  font-family:var(--display);font-size:13px;line-height:1;padding-top:2px;
+}
+
+/* Botoes ---------------------------------------------------------------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  width:100%; min-height:48px; padding:12px 18px;
+  border:2px solid transparent; border-radius:10px 0 10px 0;
+  font-family:var(--cond); font-weight:700; font-size:16px;
+  letter-spacing:.08em; text-transform:uppercase;
+  cursor:pointer; transition:transform .12s, background .15s, color .15s;
+}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.42;cursor:not-allowed}
+.btn--primario{background:var(--navy);color:#fff}
+.btn--primario:hover{background:var(--navy-700)}
+.btn--laranja{background:var(--laranja);color:var(--navy)}   /* 5.50:1 medido */
+.btn--laranja:hover:not(:disabled){background:#ff8244}
+.btn--navy{background:transparent;color:#fff;border-color:rgba(255,255,255,.4);margin-top:10px}
+.btn--navy:hover{background:rgba(255,255,255,.1)}
+.btn--fantasma{
+  background:transparent;color:var(--txt-2);border-color:var(--borda);
+  min-height:42px;font-size:14px;margin-top:12px;
+}
+.btn--fantasma:hover{border-color:var(--navy);color:var(--navy)}
+
+.ajuda{margin:10px 0 0;font-size:12.5px;color:var(--txt-fraco);line-height:1.4}
+.bloco--saida .ajuda{color:rgba(255,255,255,.7);text-align:center}
+kbd{
+  font:inherit;font-size:11.5px;background:var(--navy-100);
+  border-radius:4px;padding:1px 5px;color:var(--navy)
+}
+
+/* Modelos --------------------------------------------------------------- */
+.modelos{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.modelo{
+  position:relative; padding:0; border:2px solid var(--borda);
+  border-radius:10px 0 10px 0; background:var(--navy-950); cursor:pointer;
+  overflow:hidden; line-height:0; transition:border-color .15s;
+}
+.modelo canvas{display:block;width:100%;height:auto}
+.modelo__nome{
+  display:block;padding:7px 9px;background:#fff;
+  font-family:var(--cond);font-weight:600;font-size:12.5px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--txt-2);
+  line-height:1.2;text-align:left;
+}
+.modelo:hover{border-color:var(--navy-300)}
+.modelo.is-on{border-color:var(--laranja)}
+.modelo.is-on .modelo__nome{background:var(--laranja);color:var(--navy)}
+
+/* Formato --------------------------------------------------------------- */
+.formato{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.formato__op{
+  min-height:42px;border:2px solid var(--borda);background:#fff;
+  border-radius:8px 0 8px 0;cursor:pointer;
+  font-family:var(--cond);font-weight:600;font-size:14px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--txt-2);
+}
+.formato__op.is-on{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* Campos ---------------------------------------------------------------- */
+.campo{display:block;margin-bottom:14px}
+.campo__rot{
+  display:block;margin-bottom:7px;
+  font-family:var(--cond);font-weight:600;font-size:13px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--txt-2);
+}
+.campo__rot i{font-style:normal;text-transform:none;letter-spacing:0;color:var(--txt-fraco)}
+.campo input[type=text]{
+  width:100%;min-height:44px;padding:10px 12px;
+  border:2px solid var(--borda);border-radius:8px 0 8px 0;background:#fff;
+}
+.campo input[type=text]:focus{outline:none;border-color:var(--navy)}
+.campo[hidden]{display:none}
+
+input[type=range]{width:100%;accent-color:var(--laranja-display);height:28px}
+
+/* Resultado -------------------------------------------------------------- */
+.resultado{margin:14px 0 0;display:grid;gap:10px}
+.resultado[hidden]{display:none}
+.resultado img{
+  display:block;width:100%;height:auto;
+  border:2px solid var(--laranja);border-radius:10px 0 10px 0;
+}
+.resultado figcaption{
+  font-size:12.5px;line-height:1.45;color:rgba(255,255,255,.82);text-align:center;
+}
+.resultado b{color:var(--laranja)}
+.resultado i{font-style:normal;color:#fff}
+
+/* Privacidade e legal --------------------------------------------------- */
+/* Corpo pequeno, mas medida de leitura curta e entrelinha folgada: e texto
+   legal, e texto legal que ninguem le nao cumpre a funcao de informar. */
+.aviso{
+  margin:26px 2px 0;padding-top:18px;border-top:1px solid var(--borda);
+}
+.aviso__titulo{
+  font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--laranja-700);margin:0 0 10px;
+}
+.aviso p{margin:0 0 9px;max-width:70ch;font-size:13px;line-height:1.6;color:var(--txt-2)}
+.aviso b{color:var(--navy)}
+.aviso a{color:var(--laranja-700)}
+
+.legal{
+  margin:18px 2px 0;font-size:12px;line-height:1.5;color:var(--txt-fraco);
+}
+.legal b{color:var(--txt-2)}
+.legal__pend{color:var(--laranja-700);font-weight:600}
+
+/* Foco visivel em tudo que recebe teclado */
+:where(a,button,input,label.btn):focus-visible{
+  outline:3px solid var(--laranja-display);outline-offset:2px;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms!important}
+}

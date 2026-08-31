@@ -1,0 +1,11 @@
+{
+  "molduras": [
+    {
+      "id": "oficial",
+      "nome": "Moldura oficial",
+      "faixa": 395,
+      "feed": "oficial-feed.webp",
+      "story": "oficial-story.webp"
+    }
+  ]
+}
