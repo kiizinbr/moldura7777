@@ -1,0 +1,111 @@
+# Publica no GitHub Pages — com trava de data.
+#
+# POR QUE ESTE ARQUIVO EXISTE
+#
+# Até 31/08/2026 este repositório publicava em modo "deploy from a branch": todo
+# push para `main` ia ao ar sozinho em cerca de um minuto, sem passar por lugar
+# nenhum onde coubesse uma verificação. Publicar conteúdo novo no DIA DA ELEIÇÃO
+# é crime (Lei 9.504/1997, art. 87, IV), e "lembrar de não dar push naquele dia"
+# não é um controle — é uma esperança.
+#
+# Agora o Pages é publicado por este workflow, e ele checa a data antes. Nos dias
+# travados o push acontece normalmente, o commit fica registrado, e o site
+# CONTINUA NO AR servindo a última versão publicada — só não recebe a nova. É
+# exatamente o que a regra pede: o site pode ficar no ar como está, o que não
+# pode é publicar coisa nova.
+#
+# A trava mora no próprio deploy, e não num agendamento que liga a proteção na
+# véspera, porque cron de Actions atrasa e às vezes não roda: uma trava que
+# depende de um cron pontual pode simplesmente não existir na hora H. Esta aqui
+# é verificada em toda tentativa de publicar.
+#
+# PARA MUDAR AS DATAS: edite DIAS_TRAVADOS abaixo. Formato AAAA-MM-DD, horário de
+# Brasília. Para destravar de emergência, rode o workflow pela aba Actions com
+# "destravar" marcado — fica registrado quem destravou e quando.
+name: Publica no Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      destravar:
+        description: "Publicar mesmo num dia travado (fica registrado no log)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Um deploy por vez; não cancela o que já está no meio.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  data:
+    name: Confere a data
+    runs-on: ubuntu-latest
+    outputs:
+      pode: ${{ steps.checa.outputs.pode }}
+    steps:
+      - id: checa
+        env:
+          # Dia da eleição de 2026. Deputado federal é cargo proporcional e não
+          # tem segundo turno, mas a lista aceita mais de uma data — basta uma
+          # por linha, caso um dia precise valer para outro pleito.
+          DIAS_TRAVADOS: |
+            2026-10-04
+          DESTRAVAR: ${{ github.event.inputs.destravar }}
+        run: |
+          # America/Sao_Paulo, não UTC: o runner roda em UTC, e o dia da eleição
+          # no Brasil vai das 03:00 UTC de domingo às 03:00 UTC de segunda. Usar
+          # a data do runner deixaria três horas de cada ponta fora da trava.
+          HOJE=$(TZ=America/Sao_Paulo date +%F)
+          echo "Hoje em Brasília: $HOJE"
+
+          if echo "$DIAS_TRAVADOS" | grep -qx "[[:space:]]*$HOJE[[:space:]]*"; then
+            if [ "$DESTRAVAR" = "true" ]; then
+              echo "::warning::$HOJE é dia travado, mas o deploy foi liberado à mão por @${{ github.actor }}."
+              echo "pode=sim" >> "$GITHUB_OUTPUT"
+            else
+              echo "pode=nao" >> "$GITHUB_OUTPUT"
+              {
+                echo "## 🔒 Publicação bloqueada"
+                echo ""
+                echo "Hoje é **$HOJE**, dia de eleição. Publicar conteúdo novo hoje é crime"
+                echo "(Lei 9.504/1997, art. 87, IV)."
+                echo ""
+                echo "**O site continua no ar**, servindo a última versão publicada — só esta"
+                echo "atualização não entrou. O commit está salvo e vai ao ar no próximo push"
+                echo "depois da meia-noite."
+                echo ""
+                echo "Se for mesmo necessário publicar hoje, rode este workflow pela aba"
+                echo "Actions com a opção **destravar** marcada. Fica registrado quem liberou."
+              } >> "$GITHUB_STEP_SUMMARY"
+            fi
+          else
+            echo "pode=sim" >> "$GITHUB_OUTPUT"
+          fi
+
+  publica:
+    name: Publica
+    needs: data
+    if: needs.data.outputs.pode == 'sim'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          # O site é estático puro: o que está no repositório é o que vai ao ar.
+          # O .nojekyll continua versionado por segurança, mas com upload-pages-artifact
+          # o Jekyll nem chega a rodar — o artefato é servido exatamente como está.
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
